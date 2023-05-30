@@ -1,0 +1,7 @@
+CREATE TABLE Pracownicy (
+  ID_pracownika INT AUTO_INCREMENT PRIMARY KEY,
+  Imie VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_polish_ci,
+  Nazwisko VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_polish_ci,
+  Stanowisko VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_polish_ci
+) CHARSET=utf8 COLLATE=utf8_polish_ci;
+

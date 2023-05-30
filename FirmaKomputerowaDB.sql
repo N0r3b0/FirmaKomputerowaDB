@@ -7,10 +7,10 @@ USE FirmaKomputerowa;
 -- Tworzenie tabeli Pracownicy
 CREATE TABLE Pracownicy (
   ID_pracownika INT AUTO_INCREMENT PRIMARY KEY,
-  Imie VARCHAR(50),
-  Nazwisko VARCHAR(50),
-  Stanowisko VARCHAR(50)
-);
+  Imie VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_polish_ci,
+  Nazwisko VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_polish_ci,
+  Stanowisko VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_polish_ci
+) CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- Tworzenie tabeli Komputery
 CREATE TABLE Komputery (
