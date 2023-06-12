@@ -43,3 +43,28 @@ CREATE TABLE Serwery (
   FOREIGN KEY (Administrator) REFERENCES Pracownicy(ID_pracownika)
 ) CHARSET=utf8 COLLATE=utf8_polish_ci; 
 
+-- Tworzenie tabeli Oprogramowanie
+CREATE TABLE Oprogramowanie (
+  ID_oprogramowania INT PRIMARY KEY,
+  Nazwa VARCHAR(50),
+  Wersja VARCHAR(50),
+  Wydawca VARCHAR(50)
+);
+
+-- Tworzenie tabeli Instalacje
+CREATE TABLE Instalacje (
+  ID_instalacji INT PRIMARY KEY,
+  ID_komputera INT,
+  ID_oprogramowania INT,
+  Data_instalacji DATE,
+  FOREIGN KEY (ID_komputera) REFERENCES Komputery(ID_komputera),
+  FOREIGN KEY (ID_oprogramowania) REFERENCES Oprogramowanie(ID_oprogramowania)
+);
+
+-- Tworzenie tabeli Serwery_Oprogramowanie
+CREATE TABLE Serwery_Oprogramowanie (
+  ID_serwera INT,
+  ID_oprogramowania INT,
+  FOREIGN KEY (ID_serwera) REFERENCES Serwery(ID_serwera),
+  FOREIGN KEY (ID_oprogramowania) REFERENCES Oprogramowanie(ID_oprogramowania)
+);

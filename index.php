@@ -67,6 +67,10 @@
             <?php include 'serwery/showTables.php'; ?>
         </tbody>
     </table>
+
+    <h2>Przypisz komputer</h2>
+    <a href="przypisz/dodaj.php"><button id="dodaj">Przypisz komputer</button></a>
+    
 </body>
 
 </html>
