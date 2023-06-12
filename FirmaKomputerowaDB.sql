@@ -14,18 +14,16 @@ CREATE TABLE Pracownicy (
 
 -- Tworzenie tabeli Komputery
 CREATE TABLE Komputery (
-  ID_komputera INT PRIMARY KEY,
-  ID_pracownika INT,
-  Model VARCHAR(50),
-  RAM INT,
-  HDD INT,
-  Karta VARCHAR(50),
-  FOREIGN KEY (ID_pracownika) REFERENCES Pracownicy(ID_pracownika)
-);
+  ID_komputera INT AUTO_INCREMENT PRIMARY KEY,
+  Procesor VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_polish_ci,
+  RAM VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_polish_ci,
+  Karta VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_polish_ci,
+  HDD VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_polish_ci
+) CHARSET=utf8 COLLATE=utf8_polish_ci;  
 
 -- Tworzenie tabeli Przypisanie
 CREATE TABLE Przypisanie (
-  ID_przypisania INT PRIMARY KEY,
+  ID_przypisania INT AUTO_INCREMENT PRIMARY KEY,
   ID_pracownika INT,
   ID_komputera INT,
   Data_przypisania DATE,
@@ -33,6 +31,17 @@ CREATE TABLE Przypisanie (
   FOREIGN KEY (ID_pracownika) REFERENCES Pracownicy(ID_pracownika),
   FOREIGN KEY (ID_komputera) REFERENCES Komputery(ID_komputera)
 );
+
+-- Tworzenie tabeli Serwery
+CREATE TABLE Serwery (
+  ID_serwera INT AUTO_INCREMENT PRIMARY KEY,
+  Procesor VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_polish_ci,
+  RAM VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_polish_ci,
+  Karta VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_polish_ci,
+  HDD VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_polish_ci,
+  Administrator INT,
+  FOREIGN KEY (Administrator) REFERENCES Pracownicy(ID_pracownika)
+) CHARSET=utf8 COLLATE=utf8_polish_ci; 
 
 -- Tworzenie tabeli Oprogramowanie
 CREATE TABLE Oprogramowanie (
@@ -50,16 +59,6 @@ CREATE TABLE Instalacje (
   Data_instalacji DATE,
   FOREIGN KEY (ID_komputera) REFERENCES Komputery(ID_komputera),
   FOREIGN KEY (ID_oprogramowania) REFERENCES Oprogramowanie(ID_oprogramowania)
-);
-
--- Tworzenie tabeli Serwery
-CREATE TABLE Serwery (
-  ID_serwera INT PRIMARY KEY,
-  Nazwa VARCHAR(50),
-  Model VARCHAR(50),
-  RAM INT,
-  HDD INT,
-  Administrator VARCHAR(50)
 );
 
 -- Tworzenie tabeli Serwery_Oprogramowanie
